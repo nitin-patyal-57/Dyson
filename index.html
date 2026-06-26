@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dyson Premium Hair Styling Range | Engineered for Perfection</title>
     
+    <!-- Google Fonts Import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,17 +15,17 @@
            DESIGN SYSTEM & CSS VARIABLES
            ------------------------------------------------------------- */
         :root {
-            --color-bg: #0A0A0A;
-            --color-surface: #141414;
-            --color-surface-raised: #1C1C1C;
-            --color-accent: #C8A96E;
-            --color-accent-bright: #E8C97E;
-            --color-text-primary: #F5F5F0;
-            --color-text-secondary: #9A9A90;
-            --color-text-muted: #5A5A55;
-            --color-border: rgba(200, 169, 110, 0.15);
-            --color-cta: #C8A96E;
-            --color-cta-hover: #E8C97E;
+            --color-bg: #000000;
+            --color-surface: #0A0A0C;
+            --color-surface-raised: #121216;
+            --color-accent: #FF0055;
+            --color-accent-bright: #FF3377;
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: #E0E0E6;
+            --color-text-muted: #666672;
+            --color-border: rgba(255, 0, 85, 0.2);
+            --color-cta: #FF0055;
+            --color-cta-hover: #FF3377;
             
             --base-unit: 4px;
             --section-gap: clamp(80px, 12vw, 160px);
@@ -110,29 +111,29 @@
 
         .btn-primary {
             background-color: var(--color-cta);
-            color: var(--color-bg);
+            color: var(--color-text-primary);
         }
 
         .btn-primary:hover {
             background-color: var(--color-cta-hover);
-            box-shadow: 0 0 20px rgba(232, 201, 126, 0.3);
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.5);
         }
 
         .btn-ghost {
             background-color: transparent;
-            border-color: var(--color-text-secondary);
+            border-color: var(--color-text-primary);
             color: var(--color-text-primary);
         }
 
         .btn-ghost:hover {
             border-color: var(--color-accent);
             color: var(--color-accent);
-            background-color: rgba(200, 169, 110, 0.05);
+            background-color: rgba(255, 0, 85, 0.05);
         }
 
         .scarcity-tag {
             font-size: 0.75rem;
-            color: #4CAF50;
+            color: #00FF66;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -144,7 +145,7 @@
             display: inline-block;
             width: 6px;
             height: 6px;
-            background-color: #4CAF50;
+            background-color: #00FF66;
             border-radius: 50%;
         }
 
@@ -160,8 +161,8 @@
             transform: translateY(0);
         }
 
+        /* Upgraded Image Placeholders with Punk Colors and Stylized Product Silhouettes */
         .image-placeholder {
-            background: linear-gradient(135deg, #1C1C1C 0%, #2A2A2A 100%);
             border: 1px solid var(--color-border);
             border-radius: 8px;
             display: flex;
@@ -169,6 +170,24 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+        }
+
+        .image-placeholder::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            z-index: 1;
+        }
+
+        .image-placeholder span {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
         .float-animation {
@@ -181,9 +200,9 @@
             100% { transform: translateY(0); }
         }
 
-        /* Gold Shimmer Gradient */
+        /* Punk Shimmer Gradient (Magenta/Pink to Clean Crisp White) */
         .shimmer-text {
-            background: linear-gradient(90deg, #C8A96E 0%, #F5E2B3 25%, #C8A96E 50%, #F5E2B3 75%, #C8A96E 100%);
+            background: linear-gradient(90deg, #FF0055 0%, #FFFFFF 25%, #FF0055 50%, #FFFFFF 75%, #FF0055 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
@@ -210,7 +229,7 @@
         }
 
         header.scrolled {
-            background-color: rgba(10, 10, 10, 0.95);
+            background-color: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--color-border);
@@ -334,7 +353,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: radial-gradient(circle at top, #1E122B 0%, var(--color-bg) 70%);
+            background: radial-gradient(circle at top, #2A0015 0%, var(--color-bg) 70%);
             padding-top: 120px;
             overflow: hidden;
         }
@@ -343,7 +362,7 @@
         .noise-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.02;
+            opacity: 0.04;
             pointer-events: none;
             z-index: 1;
         }
@@ -416,14 +435,29 @@
         .hero-hero-img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, #1A1A26, #0D0D14);
+            /* Graphic Multi-styler wand configuration built with CSS shapes */
+            background: radial-gradient(circle at 50% 30%, #FF0055 0%, transparent 60%), 
+                        linear-gradient(180deg, #1A1A1E 0%, #050505 100%);
+        }
+
+        .hero-hero-img::before {
+            content: '';
+            position: absolute;
+            width: 35px;
+            height: 240px;
+            background: linear-gradient(90deg, #333 0%, #111 50%, #000 100%);
+            border-radius: 4px;
+            border-top: 8px solid var(--color-accent);
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.3);
         }
 
         .hero-hero-img span {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
-            color: var(--color-accent);
+            color: var(--color-text-primary);
             letter-spacing: 0.1em;
+            margin-top: auto;
+            padding-bottom: 30px;
         }
 
         .hero-svg-decor {
@@ -432,7 +466,7 @@
             right: -50px;
             width: 300px;
             height: 300px;
-            opacity: 0.2;
+            opacity: 0.3;
             pointer-events: none;
         }
 
@@ -500,11 +534,75 @@
         }
         @media (min-width: 768px) { .panel-image { height: 450px; } }
 
+        #panel-airwrap .panel-image {
+            background: linear-gradient(215deg, #22000B 0%, #0A0A0F 100%);
+        }
+        #panel-airwrap .panel-image::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 220px;
+            background: linear-gradient(90deg, #444, #222, #000);
+            border-radius: 4px;
+            border-top: 15px solid #FF0055;
+            box-shadow: 0 0 40px rgba(255, 0, 85, 0.4);
+        }
+
+        #panel-supersonic .panel-image {
+            background: linear-gradient(215deg, #111116 0%, #000000 100%);
+        }
+        #panel-supersonic .panel-image::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #0D0D11;
+            border: 12px solid #FF0055;
+            border-radius: 50%;
+            box-shadow: 0 0 35px rgba(255, 0, 85, 0.5);
+            transform: translateY(-40px);
+        }
+        #panel-supersonic .panel-image::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 140px;
+            background: linear-gradient(90deg, #333, #111);
+            bottom: 110px;
+            border-radius: 4px;
+        }
+
+        #panel-corrale .panel-image {
+            background: linear-gradient(215deg, #1F0010 0%, #050505 100%);
+        }
+        #panel-corrale .panel-image::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 240px;
+            background: linear-gradient(90deg, #2A2A30, #111);
+            border-radius: 6px;
+            box-shadow: inset 0 0 15px rgba(255, 0, 85, 0.2);
+        }
+        #panel-corrale .panel-image::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 160px;
+            background: #FFFFFF;
+            box-shadow: 0 0 15px #FF0055;
+            left: calc(50% - 4px);
+            top: 130px;
+            z-index: 2;
+        }
+
         .panel-image span {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
             font-style: italic;
-            color: var(--color-accent);
+            color: var(--color-text-primary);
+            margin-top: auto;
+            padding-bottom: 24px;
         }
 
         .panel-content h3 {
@@ -573,7 +671,7 @@
 
         .tech-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(200, 169, 110, 0.08);
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.15);
             border-top-color: var(--color-accent-bright);
         }
 
@@ -603,8 +701,6 @@
             color: var(--color-text-secondary);
         }
 
-        /* Staggered load delays handled dynamically via JS or utility */
-
         /* -------------------------------------------------------------
            SECTION 5 — BEFORE / AFTER SOCIAL PROOF STRIP
            ------------------------------------------------------------- */
@@ -625,7 +721,7 @@
             width: 100%;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            scrollbar-width: none; /* Hide scrollbar for clean premium look */
+            scrollbar-width: none;
             -webkit-overflow-scrolling: touch;
             display: flex;
             padding-bottom: 24px;
@@ -736,14 +832,14 @@
         .row-label {
             font-weight: 600;
             color: var(--color-text-secondary);
-            background-color: rgba(20,20,20,0.4);
+            background-color: rgba(10,10,12,0.8);
             width: 20%;
         }
 
         /* Airwrap Highlight Column */
         .col-highlight {
             position: relative;
-            background-color: rgba(200, 169, 110, 0.04);
+            background-color: rgba(255, 0, 85, 0.04);
         }
         
         th.col-highlight {
@@ -788,7 +884,6 @@
                 flex-direction: row;
                 justify-content: space-between;
             }
-            /* Connecting line on desktop */
             .steps-container::before {
                 content: '';
                 position: absolute;
@@ -813,7 +908,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 4rem;
             line-height: 1;
-            color: rgba(200, 169, 110, 0.15);
+            color: rgba(255, 0, 85, 0.2);
             margin-bottom: 8px;
             font-weight: 300;
         }
@@ -835,7 +930,7 @@
            SECTION 8 — FULL-WIDTH CTA BANNER
            ------------------------------------------------------------- */
         .cta-banner {
-            background: linear-gradient(135deg, #0D0D1A 0%, #1A0D2E 100%);
+            background: linear-gradient(135deg, #12000A 0%, #000000 100%);
             border: 1px solid var(--color-border);
             border-radius: 12px;
             padding: 80px 40px;
@@ -861,7 +956,7 @@
             position: absolute;
             width: 250px;
             height: 250px;
-            opacity: 0.15;
+            opacity: 0.2;
             pointer-events: none;
         }
 
@@ -921,7 +1016,7 @@
            SECTION 10 — FOOTER
            ------------------------------------------------------------- */
         footer {
-            background-color: #050505;
+            background-color: #030305;
             border-top: 1px solid var(--color-border);
             padding-top: 80px;
             padding-bottom: 40px;
@@ -993,7 +1088,7 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(200, 169, 110, 0.1);
+            border-top: 1px solid rgba(255, 0, 85, 0.1);
             padding-top: 32px;
             display: flex;
             flex-direction: column;
@@ -1024,6 +1119,7 @@
 </head>
 <body>
 
+    <!-- SECTION 1 — STICKY NAVIGATION -->
     <header id="main-header">
         <div class="container nav-container">
             <a href="#" class="logo" aria-label="Dyson Home">DYSON</a>
@@ -1043,6 +1139,7 @@
         </div>
     </header>
 
+    <!-- Mobile Full-Screen Overlay Navigation -->
     <div class="mobile-overlay" id="mobile-nav">
         <a href="#range" class="mobile-link">Products</a>
         <a href="#tech" class="mobile-link">Technology</a>
@@ -1053,6 +1150,7 @@
     </div>
 
     <main>
+        <!-- SECTION 2 — HERO -->
         <section class="hero-section" id="hero">
             <svg class="noise-bg" xmlns="http://www.w3.org/2000/svg">
                 <filter id="noiseFilter">
@@ -1093,13 +1191,14 @@
                         <span>Airwrap™ Multi-Styler</span>
                     </div>
                     <svg class="hero-svg-decor" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="100" r="80" stroke="#C8A96E" stroke-width="0.5" />
-                        <circle cx="100" cy="100" r="60" stroke="#C8A96E" stroke-width="0.2" stroke-dasharray="2 2" />
+                        <circle cx="100" cy="100" r="80" stroke="#FF0055" stroke-width="0.5" />
+                        <circle cx="100" cy="100" r="60" stroke="#FF0055" stroke-width="0.2" stroke-dasharray="2 2" />
                     </svg>
                 </div>
             </div>
         </section>
 
+        <!-- SECTION 3 — PRODUCT SWITCHER -->
         <section id="range" class="container">
             <div style="text-align: center; margin-bottom: 40px;" class="reveal">
                 <span class="eyebrow">The Range</span>
@@ -1112,6 +1211,7 @@
                 <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-corrale" id="tab-corrale" style="transition-delay: 100ms;">Corrale Straightener</button>
             </div>
 
+            <!-- Panel 1: Airwrap -->
             <div class="tab-panel active" id="panel-airwrap" role="tabpanel" aria-labelledby="tab-airwrap">
                 <div class="image-placeholder panel-image float-animation">
                     <span>Dyson Airwrap™ Complete</span>
@@ -1132,6 +1232,7 @@
                 </div>
             </div>
 
+            <!-- Panel 2: Supersonic -->
             <div class="tab-panel" id="panel-supersonic" role="tabpanel" aria-labelledby="tab-supersonic">
                 <div class="image-placeholder panel-image">
                     <span>Dyson Supersonic™</span>
@@ -1152,6 +1253,7 @@
                 </div>
             </div>
 
+            <!-- Panel 3: Corrale -->
             <div class="tab-panel" id="panel-corrale" role="tabpanel" aria-labelledby="tab-corrale">
                 <div class="image-placeholder panel-image">
                     <span>Dyson Corrale™</span>
@@ -1173,7 +1275,8 @@
             </div>
         </section>
 
-        <section id="tech" style="background-color: #0F0F0F;">
+        <!-- SECTION 4 — TECHNOLOGY DEEP DIVE -->
+        <section id="tech" style="background-color: #050507;">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 24px;" class="reveal">
                     <span class="eyebrow">Engineering Precision</span>
@@ -1212,6 +1315,7 @@
             </div>
         </section>
 
+        <!-- SECTION 5 — BEFORE / AFTER SOCIAL PROOF STRIP -->
         <section id="results" class="proof-section">
             <h2 class="proof-title reveal display-font"><em>Real Results. No Filter.</em></h2>
             
@@ -1283,6 +1387,7 @@
             </div>
         </section>
 
+        <!-- SECTION 6 — COMPARISON TABLE -->
         <section id="compare" class="container">
             <div style="text-align: center; margin-bottom: 24px;" class="reveal">
                 <span class="eyebrow">Product Breakdown</span>
@@ -1344,7 +1449,8 @@
             </div>
         </section>
 
-        <section id="science" style="background-color: #0F0F0F;">
+        <!-- SECTION 7 — HOW IT WORKS -->
+        <section id="science" style="background-color: #050507;">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 24px;" class="reveal">
                     <span class="eyebrow">The Science</span>
@@ -1373,10 +1479,11 @@
             </div>
         </section>
 
+        <!-- SECTION 8 — FULL-WIDTH CTA BANNER -->
         <section class="container" id="shop">
             <div class="cta-banner reveal">
                 <svg class="cta-decor-svg cta-decor-tl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="0" cy="0" r="80" stroke="#C8A96E" stroke-width="0.5" />
+                    <circle cx="0" cy="0" r="80" stroke="#FF0055" stroke-width="0.5" />
                 </svg>
 
                 <h2 class="cta-banner-title display-font"><em>Your Best Hair Day Starts Here</em></h2>
@@ -1389,11 +1496,12 @@
                 </div>
 
                 <svg class="cta-decor-svg cta-decor-br" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="100" r="70" stroke="#C8A96E" stroke-width="0.5" />
+                    <circle cx="100" cy="100" r="70" stroke="#FF0055" stroke-width="0.5" />
                 </svg>
             </div>
         </section>
 
+        <!-- SECTION 9 — FAQ ACCORDION -->
         <section id="faq" class="container">
             <div style="text-align: center; margin-bottom: 24px;" class="reveal">
                 <span class="eyebrow">Support Knowledge</span>
@@ -1464,6 +1572,7 @@
         </section>
     </main>
 
+    <!-- SECTION 10 — FOOTER -->
     <footer>
         <div class="container footer-grid">
             <div class="footer-col">
@@ -1523,6 +1632,7 @@
         </div>
     </footer>
 
+    <!-- VANILLA JAVASCRIPT ACTIONS LOGIC CORE -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -1560,14 +1670,12 @@
                 button.addEventListener('click', () => {
                     const targetPanelId = button.getAttribute('aria-controls');
                     
-                    // Reset all tabs active metrics
                     tabButtons.forEach(btn => {
                         btn.classList.remove('active');
                         btn.setAttribute('aria-selected', 'false');
                     });
                     tabPanels.forEach(panel => panel.classList.remove('active'));
 
-                    // Set active states on chosen element
                     button.classList.add('active');
                     button.setAttribute('aria-selected', 'true');
                     
@@ -1605,7 +1713,6 @@
                     const icon = trigger.querySelector('.faq-icon');
                     const isOpen = trigger.getAttribute('aria-expanded') === 'true';
 
-                    // Close open items logic
                     faqTriggers.forEach(otherTrigger => {
                         if(otherTrigger !== trigger) {
                             otherTrigger.setAttribute('aria-expanded', 'false');
@@ -1614,7 +1721,6 @@
                         }
                     });
 
-                    // Set states for active target
                     if (isOpen) {
                         trigger.setAttribute('aria-expanded', 'false');
                         content.style.maxHeight = null;
@@ -1634,7 +1740,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Unobserve element once animation plays
                         revealObserver.unobserve(entry.target);
                     }
                 });
