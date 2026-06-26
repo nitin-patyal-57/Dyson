@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyson Premium Hair Styling Range | Engineered for Perfection</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* -------------------------------------------------------------
+           DESIGN SYSTEM & CSS VARIABLES
+           ------------------------------------------------------------- */
+        :root {
+            --color-bg: #0A0A0A;
+            --color-surface: #141414;
+            --color-surface-raised: #1C1C1C;
+            --color-accent: #C8A96E;
+            --color-accent-bright: #E8C97E;
+            --color-text-primary: #F5F5F0;
+            --color-text-secondary: #9A9A90;
+            --color-text-muted: #5A5A55;
+            --color-border: rgba(200, 169, 110, 0.15);
+            --color-cta: #C8A96E;
+            --color-cta-hover: #E8C97E;
+            
+            --base-unit: 4px;
+            --section-gap: clamp(80px, 12vw, 160px);
+            --container-max-width: 1280px;
+            --container-padding: clamp(20px, 5vw, 80px);
+            
+            --transition-primary: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Typography Helpers */
+        h1, h2, h3, .display-font {
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.05;
+            font-weight: 400;
+        }
+
+        p, button, a, label {
+            line-height: 1.6;
+        }
+
+        .eyebrow {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: calc(var(--base-unit) * 4);
+            display: block;
+        }
+
+        /* Layout Layouts */
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+        }
+
+        section {
+            padding-top: calc(var(--section-gap) / 2);
+            padding-bottom: calc(var(--section-gap) / 2);
+            position: relative;
+        }
+
+        /* Utility Components */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            padding: 14px 32px;
+            border-radius: 50px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition-primary);
+        }
+
+        .btn-primary {
+            background-color: var(--color-cta);
+            color: var(--color-bg);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-cta-hover);
+            box-shadow: 0 0 20px rgba(232, 201, 126, 0.3);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            border-color: var(--color-text-secondary);
+            color: var(--color-text-primary);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            background-color: rgba(200, 169, 110, 0.05);
+        }
+
+        .scarcity-tag {
+            font-size: 0.75rem;
+            color: #4CAF50;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+        .scarcity-tag::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+        }
+
+        /* Global Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, #1C1C1C 0%, #2A2A2A 100%);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .float-animation {
+            animation: floatLoop 4s ease-in-out infinite;
+        }
+
+        @keyframes floatLoop {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Gold Shimmer Gradient */
+        .shimmer-text {
+            background: linear-gradient(90deg, #C8A96E 0%, #F5E2B3 25%, #C8A96E 50%, #F5E2B3 75%, #C8A96E 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmerEffect 4s linear infinite;
+        }
+
+        @keyframes shimmerEffect {
+            0% { background-position: 0% center; }
+            100% { background-position: -200% center; }
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 1 — STICKY NAVIGATION
+           ------------------------------------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-primary);
+            border-bottom: 1px solid transparent;
+        }
+
+        header.scrolled {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 1.6rem;
+            letter-spacing: 0.2em;
+            color: var(--color-text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: none;
+            gap: calc(var(--base-unit) * 8);
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: var(--transition-primary);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent-bright);
+        }
+
+        .nav-cta-box {
+            display: none;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .nav-cta-box { display: block; }
+        }
+
+        .nav-cta-box .btn {
+            padding: 8px 24px;
+            font-size: 0.85rem;
+        }
+
+        /* Hamburger Styles */
+        .hamburger {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1010;
+        }
+        @media (min-width: 768px) {
+            .hamburger { display: none; }
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--color-text-primary);
+            margin: 5px 0;
+            transition: var(--transition-primary);
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--color-bg);
+            z-index: 1005;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-primary);
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-overlay a {
+            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: var(--transition-primary);
+        }
+
+        .mobile-overlay a:hover {
+            color: var(--color-accent);
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 2 — HERO
+           ------------------------------------------------------------- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at top, #1E122B 0%, var(--color-bg) 70%);
+            padding-top: 120px;
+            overflow: hidden;
+        }
+
+        /* SVG Noise filter styling overlay */
+        .noise-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        @media (min-width: 1024px) {
+            .hero-grid { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
+        }
+
+        .hero-headline {
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            margin-bottom: calc(var(--base-unit) * 6);
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 300;
+            color: var(--color-text-secondary);
+            max-width: 540px;
+            margin-bottom: calc(var(--base-unit) * 10);
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: calc(var(--base-unit) * 12);
+        }
+
+        .trust-strip {
+            display: flex;
+            gap: 32px;
+            border-top: 1px solid var(--color-border);
+            padding-top: calc(var(--base-unit) * 6);
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trust-val {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-accent-bright);
+        }
+
+        .trust-lbl {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        @media (min-width: 1024px) {
+            .hero-visual { height: 500px; }
+        }
+
+        .hero-hero-img {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #1A1A26, #0D0D14);
+        }
+
+        .hero-hero-img span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--color-accent);
+            letter-spacing: 0.1em;
+        }
+
+        .hero-svg-decor {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 3 — PRODUCT SWITCHER
+           ------------------------------------------------------------- */
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 48px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 500;
+            padding: 16px 8px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition-primary);
+        }
+
+        .tab-btn:hover {
+            color: var(--color-text-primary);
+        }
+
+        .tab-btn.active {
+            color: var(--color-accent-bright);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-accent);
+        }
+
+        .tab-panel {
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .tab-panel.active {
+            display: grid;
+            opacity: 1;
+        }
+
+        @media (min-width: 768px) {
+            .tab-panel { grid-template-columns: 1fr 1fr; align-items: center; }
+        }
+
+        .panel-image {
+            height: 320px;
+        }
+        @media (min-width: 768px) { .panel-image { height: 450px; } }
+
+        .panel-image span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        .panel-content h3 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 24px;
+        }
+
+        .benefit-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .benefit-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 16px;
+            color: var(--color-text-secondary);
+        }
+
+        .benefit-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        .price-box {
+            margin-bottom: 24px;
+        }
+
+        .price-main {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .price-anchor {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            display: block;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 4 — TECHNOLOGY DEEP DIVE
+           ------------------------------------------------------------- */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 48px;
+        }
+        @media (min-width: 768px) {
+            .tech-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .tech-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-top: 3px solid var(--color-accent);
+            padding: 40px 32px;
+            border-radius: 4px;
+            transition: var(--transition-primary);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(200, 169, 110, 0.08);
+            border-top-color: var(--color-accent-bright);
+        }
+
+        .tech-icon {
+            width: 40px;
+            height: 40px;
+            stroke: var(--color-accent);
+            margin-bottom: 24px;
+        }
+
+        .tech-stat {
+            font-size: 2.5rem;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .tech-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-accent);
+        }
+
+        .tech-desc {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--color-text-secondary);
+        }
+
+        /* Staggered load delays handled dynamically via JS or utility */
+
+        /* -------------------------------------------------------------
+           SECTION 5 — BEFORE / AFTER SOCIAL PROOF STRIP
+           ------------------------------------------------------------- */
+        .proof-section {
+            background-color: var(--color-surface);
+            padding-left: 0;
+            padding-right: 0;
+            overflow: hidden;
+        }
+
+        .proof-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .testimonial-slider-container {
+            width: 100%;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Hide scrollbar for clean premium look */
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            padding-bottom: 24px;
+        }
+        .testimonial-slider-container::-webkit-scrollbar { display: none; }
+
+        .testimonial-card {
+            flex: 0 0 85%;
+            max-width: 400px;
+            background-color: var(--color-surface-raised);
+            border: 1px solid var(--color-border);
+            padding: 32px;
+            margin-left: 20px;
+            border-radius: 6px;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        @media (min-width: 768px) {
+            .testimonial-card { flex: 0 0 35%; }
+        }
+
+        .stars {
+            color: var(--color-accent-bright);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .quote {
+            font-size: 1rem;
+            font-style: italic;
+            font-weight: 300;
+            color: var(--color-text-primary);
+            margin-bottom: 24px;
+        }
+
+        .reviewer-meta {
+            font-size: 0.85rem;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--color-accent);
+            display: block;
+        }
+
+        .reviewer-hair {
+            color: var(--color-text-muted);
+        }
+
+        /* Logos Strip */
+        .logos-strip {
+            margin-top: 64px;
+            border-top: 1px solid var(--color-border);
+            padding-top: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px 40px;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .logo-sep {
+            color: var(--color-accent);
+            font-size: 0.6rem;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 6 — COMPARISON TABLE
+           ------------------------------------------------------------- */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 48px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+        }
+
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 700px;
+            font-size: 0.95rem;
+        }
+
+        .comp-table th, .comp-table td {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .comp-table th {
+            background-color: var(--color-surface);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .comp-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .row-label {
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            background-color: rgba(20,20,20,0.4);
+            width: 20%;
+        }
+
+        /* Airwrap Highlight Column */
+        .col-highlight {
+            position: relative;
+            background-color: rgba(200, 169, 110, 0.04);
+        }
+        
+        th.col-highlight {
+            border-top: 2px solid var(--color-accent);
+        }
+
+        .table-cta {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            margin-top: 4px;
+            transition: var(--transition-primary);
+        }
+
+        .table-cta:hover {
+            color: var(--color-accent-bright);
+            text-decoration: underline;
+        }
+
+        .check-icon {
+            color: var(--color-accent-bright);
+            font-weight: bold;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 7 — HOW IT WORKS
+           ------------------------------------------------------------- */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 64px;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .steps-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            /* Connecting line on desktop */
+            .steps-container::before {
+                content: '';
+                position: absolute;
+                top: 45px;
+                left: 10%;
+                width: 80%;
+                height: 1px;
+                border-top: 1px dashed var(--color-border);
+                z-index: 1;
+            }
+        }
+
+        .step-item {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+            background-color: var(--color-bg);
+            padding-right: 16px;
+        }
+
+        .step-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            line-height: 1;
+            color: rgba(200, 169, 110, 0.15);
+            margin-bottom: 8px;
+            font-weight: 300;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--color-text-primary);
+        }
+
+        .step-desc {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            font-weight: 300;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 8 — FULL-WIDTH CTA BANNER
+           ------------------------------------------------------------- */
+        .cta-banner {
+            background: linear-gradient(135deg, #0D0D1A 0%, #1A0D2E 100%);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .cta-banner-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 16px;
+        }
+
+        .cta-banner-sub {
+            color: var(--color-text-secondary);
+            font-weight: 300;
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+
+        .cta-decor-svg {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .cta-decor-tl { top: -40px; left: -40px; }
+        .cta-decor-br { bottom: -40px; right: -40px; }
+
+        /* -------------------------------------------------------------
+           SECTION 9 — FAQ ACCORDION
+           ------------------------------------------------------------- */
+        .faq-container {
+            max-width: 800px;
+            margin: 48px auto 0 auto;
+        }
+
+        .faq-row {
+            border-bottom: 1px solid var(--color-border);
+            padding: 24px 0;
+        }
+
+        .faq-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            cursor: pointer;
+            color: var(--color-text-primary);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-icon {
+            color: var(--color-accent);
+            font-size: 1.4rem;
+            line-height: 1;
+            transition: var(--transition-primary);
+            margin-left: 16px;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-content p {
+            padding-top: 16px;
+            color: var(--color-text-secondary);
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 10 — FOOTER
+           ------------------------------------------------------------- */
+        footer {
+            background-color: #050505;
+            border-top: 1px solid var(--color-border);
+            padding-top: 80px;
+            padding-bottom: 40px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 64px;
+        }
+        @media (min-width: 1024px) {
+            .footer-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .footer-col h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: var(--transition-primary);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--color-accent);
+        }
+
+        .social-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            stroke: var(--color-text-secondary);
+            fill: none;
+            transition: var(--transition-primary);
+        }
+        .social-icon:hover {
+            stroke: var(--color-accent);
+        }
+
+        .footer-tagline {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(200, 169, 110, 0.1);
+            padding-top: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .footer-bottom { flex-direction: row; }
+        }
+
+        .copyright {
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Accessibility Handling */
+        @media (prefers-reduced-motion: reduce) {
+            *, .reveal, .shimmer-text, .float-animation, .faq-content {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+                max-height: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="#" class="logo" aria-label="Dyson Home">DYSON</a>
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="#range">Products</a>
+                <a href="#tech">Technology</a>
+                <a href="#results">Results</a>
+                <a href="#compare">Compare</a>
+                <a href="#faq">Shop</a>
+            </nav>
+            <div class="nav-cta-box">
+                <a href="#range" class="btn btn-primary" aria-label="Shop Now">Shop Now</a>
+            </div>
+            <button class="hamburger" id="menu-toggle" aria-label="Toggle Mobile Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-overlay" id="mobile-nav">
+        <a href="#range" class="mobile-link">Products</a>
+        <a href="#tech" class="mobile-link">Technology</a>
+        <a href="#results" class="mobile-link">Results</a>
+        <a href="#compare" class="mobile-link">Compare</a>
+        <a href="#faq" class="mobile-link">Shop Info</a>
+        <a href="#range" class="btn btn-primary mobile-link" style="margin-top: 20px;">Shop Now</a>
+    </div>
+
+    <main>
+        <section class="hero-section" id="hero">
+            <svg class="noise-bg" xmlns="http://www.w3.org/2000/svg">
+                <filter id="noiseFilter">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+                </filter>
+                <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+            </svg>
+
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="eyebrow">Dyson Hair Technology</span>
+                    <h1 class="hero-headline">Reshaping your <span class="shimmer-text">hair</span> without damage.</h1>
+                    <p class="hero-subheadline">Experience absolute control. Intelligently monitored thermal technology yields master salon results at home, using optimal airflow currents instead of burning heat.</p>
+                    
+                    <div class="hero-ctas">
+                        <a href="#range" class="btn btn-primary" aria-label="Shop Airwrap Multi-Styler">Shop Airwrap</a>
+                        <a href="#tech" class="btn btn-ghost" aria-label="Watch Styling Science Film">Watch Film</a>
+                    </div>
+
+                    <div class="trust-strip">
+                        <div class="trust-item">
+                            <span class="trust-val">4.8 ★</span>
+                            <span class="trust-lbl">Verified Rating</span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-val">2M+</span>
+                            <span class="trust-lbl">Global Users</span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-val">0°</span>
+                            <span class="trust-lbl">Extreme Heat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal" style="transition-delay: 200ms;">
+                    <div class="image-placeholder hero-hero-img float-animation">
+                        <span>Airwrap™ Multi-Styler</span>
+                    </div>
+                    <svg class="hero-svg-decor" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" stroke="#C8A96E" stroke-width="0.5" />
+                        <circle cx="100" cy="100" r="60" stroke="#C8A96E" stroke-width="0.2" stroke-dasharray="2 2" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section id="range" class="container">
+            <div style="text-align: center; margin-bottom: 40px;" class="reveal">
+                <span class="eyebrow">The Range</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 3.5rem);">Engineered For All Hair Formations</h2>
+            </div>
+
+            <div class="tabs-nav reveal" role="tablist" aria-label="Dyson Hair Range">
+                <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-airwrap" id="tab-airwrap">Airwrap Multi-Styler</button>
+                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-supersonic" id="tab-supersonic" style="transition-delay: 50ms;">Supersonic Dryer</button>
+                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-corrale" id="tab-corrale" style="transition-delay: 100ms;">Corrale Straightener</button>
+            </div>
+
+            <div class="tab-panel active" id="panel-airwrap" role="tabpanel" aria-labelledby="tab-airwrap">
+                <div class="image-placeholder panel-image float-animation">
+                    <span>Dyson Airwrap™ Complete</span>
+                </div>
+                <div class="panel-content">
+                    <h3>Airwrap™ Multi-Styler</h3>
+                    <ul class="benefit-list">
+                        <li>Uses the Coanda aerodynamic effect to curl, wave, and smooth systematically</li>
+                        <li>Styles safely from wet to fully dried down states without excessive thermal extremes</li>
+                        <li>Includes 6 distinct engineering attachments for all personalized volume formats</li>
+                    </ul>
+                    <div class="price-box">
+                        <span class="price-main">£479.99</span>
+                        <span class="price-anchor">or from £39.99/mo with interest-free installment finance plans</span>
+                    </div>
+                    <a href="#shop" class="btn btn-primary">Shop Airwrap Multi-Styler</a>
+                    <span class="scarcity-tag">In Stock · Ships Today Guarantee</span>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="panel-supersonic" role="tabpanel" aria-labelledby="tab-supersonic">
+                <div class="image-placeholder panel-image">
+                    <span>Dyson Supersonic™</span>
+                </div>
+                <div class="panel-content">
+                    <h3>Supersonic™ Hair Dryer</h3>
+                    <ul class="benefit-list">
+                        <li>Rapid localized drying accelerated via high-pressure acoustic V9 digital motor</li>
+                        <li>Intelligent thermistor checks tracking temperatures 40 times every single second</li>
+                        <li>Engineered structural balancing optimizes weight distribution for stressless agility</li>
+                    </ul>
+                    <div class="price-box">
+                        <span class="price-main">£359.99</span>
+                        <span class="price-anchor">or from £29.99/mo with interest-free installment finance plans</span>
+                    </div>
+                    <a href="#shop" class="btn btn-primary">Shop Supersonic Dryer</a>
+                    <span class="scarcity-tag">In Stock · Ships Today Guarantee</span>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="panel-corrale" role="tabpanel" aria-labelledby="tab-corrale">
+                <div class="image-placeholder panel-image">
+                    <span>Dyson Corrale™</span>
+                </div>
+                <div class="panel-content">
+                    <h3>Corrale™ Cordless Straightener</h3>
+                    <ul class="benefit-list">
+                        <li>Manganese copper alloy flexing plates contour shape perfectly around bundles</li>
+                        <li>Achieves pristine straight results with less heat dependency, limiting breakage</li>
+                        <li>Hybrid lithium corded/cordless freedom allows effortless mobile styling workflows</li>
+                    </ul>
+                    <div class="price-box">
+                        <span class="price-main">£399.99</span>
+                        <span class="price-anchor">or from £33.33/mo with interest-free installment finance plans</span>
+                    </div>
+                    <a href="#shop" class="btn btn-primary">Shop Corrale Straightener</a>
+                    <span class="scarcity-tag">In Stock · Ships Today Guarantee</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" style="background-color: #0F0F0F;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 24px;" class="reveal">
+                    <span class="eyebrow">Engineering Precision</span>
+                    <h2 style="font-size: clamp(2rem, 4vw, 3.5rem);">Engineering You Can Feel</h2>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-card reveal">
+                        <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke-linecap="round"/>
+                        </svg>
+                        <div class="tech-stat display-font">110,000 RPM</div>
+                        <h3 class="tech-title">Dyson Digital Motor V9</h3>
+                        <p class="tech-desc">Spins fast enough to create the atmospheric pressure gradient required to sustain the continuous automated Coanda air wrapping phenomenon.</p>
+                    </div>
+
+                    <div class="tech-card reveal" style="transition-delay: 150ms;">
+                        <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke-linecap="round"/>
+                            <path d="M12 6v6l4 2" stroke-linecap="round"/>
+                        </svg>
+                        <div class="tech-stat display-font">40× / Sec</div>
+                        <h3 class="tech-title">Intelligent Heat Control</h3>
+                        <p class="tech-desc">Continuous feedback loops keep temperature emissions beneath 150°C safely, completely stopping thermal degradation risks to structural hair keratin layers.</p>
+                    </div>
+
+                    <div class="tech-card reveal" style="transition-delay: 300ms;">
+                        <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M6 3h12M6 8h12M4 13h16M4 18h16" stroke-linecap="round"/>
+                        </svg>
+                        <div class="tech-stat display-font">50% Less</div>
+                        <h3 class="tech-title">Flexing Micro-Plates</h3>
+                        <p class="tech-desc">Flexible copper profiles shape directly to the density of the locks, applying consistent pressure tension across strands while reducing reliance on raw heat spikes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="proof-section">
+            <h2 class="proof-title reveal display-font"><em>Real Results. No Filter.</em></h2>
+            
+            <div class="testimonial-slider-container" id="testimonial-track">
+                <article class="testimonial-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"I was skeptical because of the investment, but the Airwrap cut my style time down entirely. Best part? No fried split ends anymore."</p>
+                    </div>
+                    <div class="reviewer-meta">
+                        <span class="reviewer-name">Sarah M.</span>
+                        <span class="reviewer-hair">Type 2A · Fine Hair</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"The volume achieved using the Supersonic is immaculate. Feels incredibly balanced and lightweight to handle during routine blowouts."</p>
+                    </div>
+                    <div class="reviewer-meta">
+                        <span class="reviewer-name">Elena R.</span>
+                        <span class="reviewer-hair">Type 3B Converter · Thick Hair</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"The Corrale's cordless mobility option is phenomenal for backstage fashion set work. Perfectly straight tresses in half the passes."</p>
+                    </div>
+                    <div class="reviewer-meta">
+                        <span class="reviewer-name">Marcus T.</span>
+                        <span class="reviewer-hair">Professional Session Stylist</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"My coarse hair looks like a glass sheet mirror. It effortlessly tames frizz without turning strands crispy. Truly remarkable."</p>
+                    </div>
+                    <div class="reviewer-meta">
+                        <span class="reviewer-name">Jessica K.</span>
+                        <span class="reviewer-hair">Type 4C Coily · Coarse Hair</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"An uncompromised dynamic system. Worth every single cent for the thermal biological protection profile alone."</p>
+                    </div>
+                    <div class="reviewer-meta">
+                        <span class="reviewer-name">Dr. Amara L.</span>
+                        <span class="reviewer-hair">Trichology Researcher</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="logos-strip container reveal">
+                <span>As seen in: Vogue</span>
+                <span class="logo-sep">•</span>
+                <span>Harper's Bazaar</span>
+                <span class="logo-sep">•</span>
+                <span>GQ Magazine</span>
+                <span class="logo-sep">•</span>
+                <span>Refinery29</span>
+            </div>
+        </section>
+
+        <section id="compare" class="container">
+            <div style="text-align: center; margin-bottom: 24px;" class="reveal">
+                <span class="eyebrow">Product Breakdown</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 3.5rem);">Which Dyson Is Yours?</h2>
+            </div>
+
+            <div class="table-wrapper reveal">
+                <table class="comp-table">
+                    <thead>
+                        <tr>
+                            <th class="row-label">Feature Matrix</th>
+                            <th class="col-highlight">
+                                <div>Airwrap™ Multi-Styler</div>
+                                <a href="#range" class="table-cta">Shop This →</a>
+                            </th>
+                            <th>
+                                <div>Supersonic™ Dryer</div>
+                                <a href="#range" class="table-cta">Shop This →</a>
+                            </th>
+                            <th>
+                                <div>Corrale™ Straightener</div>
+                                <a href="#range" class="table-cta">Shop This →</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="row-label">Styling Type</td>
+                            <td class="col-highlight">Voluminous Curls, Waves, Smoothness</td>
+                            <td>Ultra-Fast High-Speed Drying</td>
+                            <td>Sleek Straight &amp; Creaseless Waves</td>
+                        </tr>
+                        <tr>
+                            <td class="row-label">Heat Technology</td>
+                            <td class="col-highlight">Coanda Aerodynamic Airflow</td>
+                            <td>Focused Ion Air Jet Thrust</td>
+                            <td>Flexing Manganese Alloys</td>
+                        </tr>
+                        <tr>
+                            <td class="row-label">Attachments</td>
+                            <td class="col-highlight">6 Multi-Functional Elements Included</td>
+                            <td>5 Precision Nozzles Included</td>
+                            <td>Charging Dock &amp; Travel Pouch</td>
+                        </tr>
+                        <tr>
+                            <td class="row-label">Best For</td>
+                            <td class="col-highlight">Multi-Style Versatility Lovers</td>
+                            <td>Rapid Prep, Efficient Drying</td>
+                            <td>Precision Styling &amp; Portability</td>
+                        </tr>
+                        <tr>
+                            <td class="row-label">Price From</td>
+                            <td class="col-highlight"><strong>£479.99</strong> <br><small style="color: var(--color-text-muted);">From £39.99/mo</small></td>
+                            <td><strong>£359.99</strong> <br><small style="color: var(--color-text-muted);">From £29.99/mo</small></td>
+                            <td><strong>£399.99</strong> <br><small style="color: var(--color-text-muted);">From £33.33/mo</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="science" style="background-color: #0F0F0F;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 24px;" class="reveal">
+                    <span class="eyebrow">The Science</span>
+                    <h2 style="font-size: clamp(2rem, 4vw, 3.5rem);">Intelligent Airflow Dynamic Execution</h2>
+                </div>
+
+                <div class="steps-container">
+                    <div class="step-item reveal">
+                        <div class="step-num">01</div>
+                        <h3 class="step-title">Airflow Channeled</h3>
+                        <p class="step-desc">High velocity air tracks nearby surface curves continuously, gathering up and wrapping the hair autonomously onto the barrel architecture.</p>
+                    </div>
+
+                    <div class="step-item reveal" style="transition-delay: 150ms;">
+                        <div class="step-num">02</div>
+                        <h3 class="step-title">Heat Measured</h3>
+                        <p class="step-desc">Internal computing elements keep absolute temperatures tracking perfectly beneath the damaging 150°C structural degradation threshold.</p>
+                    </div>
+
+                    <div class="step-item reveal" style="transition-delay: 300ms;">
+                        <div class="step-num">03</div>
+                        <h3 class="step-title">Style Set</h3>
+                        <p class="step-desc">An instant cold shot channel delivers a blast of cool air immediately to safely lock structural hydrogen bonds in place for all-day retention.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="shop">
+            <div class="cta-banner reveal">
+                <svg class="cta-decor-svg cta-decor-tl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="0" cy="0" r="80" stroke="#C8A96E" stroke-width="0.5" />
+                </svg>
+
+                <h2 class="cta-banner-title display-font"><em>Your Best Hair Day Starts Here</em></h2>
+                <p class="cta-banner-sub">Free express shipping tracking on all orders over £50. Full 2-year authorized Dyson absolute guarantee included.</p>
+                <a href="#range" class="btn btn-primary" style="font-size: 1rem; padding: 18px 40px;">Shop the Full Range &rarr;</a>
+                
+                <div style="margin-top: 16px; display: flex; justify-content: center; gap: 16px; font-size: 0.8rem; color: var(--color-text-secondary);">
+                    <span>✓ Free Returns Included</span>
+                    <span>✓ Official Direct Warranty Auth</span>
+                </div>
+
+                <svg class="cta-decor-svg cta-decor-br" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="70" stroke="#C8A96E" stroke-width="0.5" />
+                </svg>
+            </div>
+        </section>
+
+        <section id="faq" class="container">
+            <div style="text-align: center; margin-bottom: 24px;" class="reveal">
+                <span class="eyebrow">Support Knowledge</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 3.5rem);">Common Questions</h2>
+            </div>
+
+            <div class="faq-container reveal">
+                <div class="faq-row">
+                    <button class="faq-trigger" aria-expanded="true">
+                        <span>How does the system protect hair from thermal structural damage?</span>
+                        <span class="faq-icon">&minus;</span>
+                    </button>
+                    <div class="faq-content" style="max-height: 1000px;">
+                        <p>Dyson hair tools utilize advanced internal microprocessors that sample temperature readings up to 40 times every second. This ongoing feedback cycle prevents extreme heat spikes, keeping the operating temperature safely below the critical 150°C threshold where permanent keratin damage begins.</p>
+                    </div>
+                </div>
+
+                <div class="faq-row">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>Can the Airwrap style effectively on damp and wet hair?</span>
+                        <span class="faq-icon">&plus;</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Yes, the Airwrap is intentionally engineered to style hair directly from a damp state. Combining powerful airflow with controlled heat, it breaks down and reforms hydrogen bonds to set your style as it dries, eliminating the need for a separate blowout and hot tool routine.</p>
+                    </div>
+                </div>
+
+                <div class="faq-row">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>Which attachment profiles work best for short, fine hairstyles?</span>
+                        <span class="faq-icon">&plus;</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>For shorter or finer hair profiles, the 20mm and 30mm slim barrels provide the optimal surface area for a secure wrap. Pair them with the soft smoothing brush attachment to create clean body and volume right at the root line without pulling.</p>
+                    </div>
+                </div>
+
+                <div class="faq-row">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>What specific items are covered under the 2-year warranty matrix?</span>
+                        <span class="faq-icon">&plus;</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>The official Dyson 2-year warranty includes comprehensive protection coverage for all original factory parts, internal operational computing logic, motor assemblies, and included attachments against any unforeseen structural defects or functional performance issues.</p>
+                    </div>
+                </div>
+
+                <div class="faq-row">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>How often should I clean the lower filter element shroud?</span>
+                        <span class="faq-icon">&plus;</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>To maintain peak airflow performance, we recommend cleaning the filter element shroud once a week. Simply slide the included filter cleaning brush over the cage to clear away dust, product residue, and loose lint that can restrict airflow.</p>
+                    </div>
+                </div>
+
+                <div class="faq-row">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>Why should I invest in Dyson over cheaper hair styling alternatives?</span>
+                        <span class="faq-icon">&plus;</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Traditional styling tools use scorching, direct heat plates that permanently strip moisture and degrade structural hair integrity over time. Investing in Dyson protects your hair's health by using calibrated aerodynamic principles rather than extreme heat, preserving natural shine, color vibrancy, and long-term hair strength.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Products Range</h4>
+                <ul>
+                    <li><a href="#range">Airwrap™ Multi-Styler</a></li>
+                    <li><a href="#range">Supersonic™ Dryer</a></li>
+                    <li><a href="#range">Corrale™ Straightener</a></li>
+                    <li><a href="#range">Limited Edition Styling Packs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support Center</h4>
+                <ul>
+                    <li><a href="#faq">Track Order Status</a></li>
+                    <li><a href="#faq">Register Device Warranty</a></li>
+                    <li><a href="#faq">Returns &amp; Refund Terms</a></li>
+                    <li><a href="#faq">Direct Authorized Stores</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company Info</h4>
+                <ul>
+                    <li><a href="#">Dyson Laboratories Innovation</a></li>
+                    <li><a href="#">Environmental Sustainability Profiles</a></li>
+                    <li><a href="#">Careers Engineering Hub</a></li>
+                    <li><a href="#">Press &amp; Media Room Assets</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <p style="color: var(--color-text-secondary); margin-bottom: 12px; font-size: 0.85rem;">Follow for exclusive styling tutorials from top global stylists.</p>
+                <div class="social-row">
+                    <a href="#" aria-label="Follow Dyson Hair on Instagram">
+                        <svg class="social-icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" aria-label="Follow Dyson Hair on TikTok">
+                        <svg class="social-icon" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                    </a>
+                    <a href="#" aria-label="Subscribe to Dyson Hair on YouTube">
+                        <svg class="social-icon" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="footer-tagline">Designed for hair. Engineered by Dyson.</div>
+            <div class="footer-bottom">
+                <span class="copyright">&copy; 2026 Dyson Corporation. All Rights Reserved. Private Copy Architecture.</span>
+                <div style="display: flex; gap: 24px; font-size: 0.8rem; color: var(--color-text-muted);">
+                    <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: inherit; text-decoration: none;">Terms of Trading</a>
+                    <a href="#" style="color: inherit; text-decoration: none;">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. STICKY NAVIGATION SCROLL CONTROLLER
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // 2. HAMBURGER NAVIGATION MOBILE OVERLAY TOGGLE
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+                menuToggle.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+                document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+            // 3. PRODUCT SWITCHER TABS ENGINE
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetPanelId = button.getAttribute('aria-controls');
+                    
+                    // Reset all tabs active metrics
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    tabPanels.forEach(panel => panel.classList.remove('active'));
+
+                    // Set active states on chosen element
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+                    
+                    const activePanel = document.getElementById(targetPanelId);
+                    activePanel.classList.add('active');
+                });
+            });
+
+            // 4. TESTIMONIAL SLIDER AUTO-SCROLL LOOPER
+            const slider = document.getElementById('testimonial-track');
+            let isHovered = false;
+            
+            slider.addEventListener('mouseenter', () => isHovered = true);
+            slider.addEventListener('mouseleave', () => isHovered = false);
+
+            setInterval(() => {
+                if (isHovered) return;
+                
+                const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 20; 
+                const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+                
+                if (slider.scrollLeft >= maxScrollLeft - 10) {
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                }
+            }, 4000);
+
+            // 5. FAQ ACCORDION ACCESSIBLE ANIMATION ENGINE
+            const faqTriggers = document.querySelectorAll('.faq-trigger');
+
+            faqTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const content = trigger.nextElementSibling;
+                    const icon = trigger.querySelector('.faq-icon');
+                    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+                    // Close open items logic
+                    faqTriggers.forEach(otherTrigger => {
+                        if(otherTrigger !== trigger) {
+                            otherTrigger.setAttribute('aria-expanded', 'false');
+                            otherTrigger.nextElementSibling.style.maxHeight = null;
+                            otherTrigger.querySelector('.faq-icon').innerHTML = '&plus;';
+                        }
+                    });
+
+                    // Set states for active target
+                    if (isOpen) {
+                        trigger.setAttribute('aria-expanded', 'false');
+                        content.style.maxHeight = null;
+                        icon.innerHTML = '&plus;';
+                    } else {
+                        trigger.setAttribute('aria-expanded', 'true');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.innerHTML = '&minus;';
+                    }
+                });
+            });
+
+            // 6. INTERSECTION OBSERVER SCROLL-TRIGGERED FADE-UP REVEAL
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Unobserve element once animation plays
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
